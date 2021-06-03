@@ -1,0 +1,112 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "sonarjs",
+        "jsdoc",
+        "import",
+        "eslint-plugin-prefer-arrow"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates",
+
+        "plugin:sonarjs/recommended",
+        "plugin:jsdoc/recommended",
+
+        "plugin:@typescript-eslint/eslint-recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+      ],
+      "settings": {
+        "jsdoc": {
+          "mode": "typescript"
+        }
+      },
+      "rules": {
+        "no-console": ["error",  { "allow": ["warn", "error"] }],
+        "require-jsdoc": ["error", {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": false,
+            "ArrowFunctionExpression": true,
+            "FunctionExpression": true
+          }
+        }],
+        "valid-jsdoc": ["error", { "requireReturn": false, "requireParamType": false }],
+        "jsdoc/check-alignment": "error",
+        "jsdoc/check-indentation": "error",
+        "jsdoc/newline-after-description": "error",
+        "jsdoc/no-types": "error",
+        "jsdoc/require-param-type": "off",
+        "import/no-deprecated": "error",
+        "prefer-arrow/prefer-arrow-functions": "error",
+        "prefer-const": "error",
+        "no-empty-function": ["error", { "allow": ["constructors"] }],
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/ban-tslint-comment": "error",
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "off"
+            }
+          }
+        ],
+        "arrow-parens": [
+          "off",
+          "always"
+        ],
+        "brace-style": [
+          "error",
+          "1tbs"
+        ],
+        "import/order": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
